@@ -7,6 +7,7 @@ import (
 	"strings"
 	"testing"
 
+	"github.com/mehoggan/simple-wiki-web-app-go/types"
 	"github.com/stretchr/testify/assert"
 )
 
@@ -29,7 +30,7 @@ func TestNew(t *testing.T) {
 	}
 	log.Printf("Loading config from %v...", settingsFile)
 	actual := Intantiate(settingsFile)
-	expected := Config{
-		Server: Server{DocRoot: "/Users/matthew.hoggan/Desktop"}}
+	expected := types.Config{
+		Server: types.Server{DocRoot: "/Users/matthew.hoggan/Desktop"}}
 	assert.Equalf(t, *actual, expected, "Configs were not equal.")
 }

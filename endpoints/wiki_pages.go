@@ -6,11 +6,12 @@ import (
 	"net/http"
 
 	"github.com/mehoggan/simple-wiki-web-app-go/config"
+	"github.com/mehoggan/simple-wiki-web-app-go/types"
 	"github.com/mehoggan/simple-wiki-web-app-go/util"
 )
 
 type Endpoints struct {
-	config config.Config
+	config types.Config
 }
 
 func (self Endpoints) ViewHandler(
