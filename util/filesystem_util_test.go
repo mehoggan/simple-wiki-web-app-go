@@ -1,4 +1,4 @@
-package filesystem
+package util
 
 import (
 	"encoding/json"
@@ -26,7 +26,7 @@ func TestSave(t *testing.T) {
 	page := &types.Page{
 		Title: "TestPage",
 		Body:  []byte("This is a sample Page.")}
-	save(page, rootPath)
+	Save(page, rootPath)
 	expected := filepath.Join(rootPath, "TestPage.txt")
 	_, err := os.Stat(expected)
 	assert.Truef(t, err == nil, "An error occured while looking for "+expected)
@@ -39,9 +39,9 @@ func TestLoad(t *testing.T) {
 	expectedPage := &types.Page{
 		Title: expectedTitle,
 		Body:  []byte("This is a sample Page.")}
-	save(expectedPage, rootPath)
+	Save(expectedPage, rootPath)
 	saved := filepath.Join(rootPath, "TestPage.txt")
-	actualPage, err := load(expectedTitle, rootPath)
+	actualPage, err := Load(expectedTitle, rootPath)
 	if err != nil {
 		t.Fatalf("Failed to load (%s) while testing.", saved)
 	}
