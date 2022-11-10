@@ -87,7 +87,7 @@ func (self Endpoints) SaveHandler(
 		http.Redirect(writter, request, "/edit/"+title,
 			http.StatusInternalServerError)
 	} else {
-		http.Redirect(writter, request, "/edit/"+title, http.StatusFound)
+		http.Redirect(writter, request, "/view/"+title, http.StatusFound)
 	}
 }
 
